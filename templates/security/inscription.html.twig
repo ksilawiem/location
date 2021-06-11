@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<br><br><br>
+<div class="example-wrapper">
+    <h1>Créer un nouveau Utilisateur</h1><br>
+{{ form_start(form) }}
+{{ form_row(form.email, {'label':'E-mail','attr':{'placeholder':'Entrer l\'adresse e-mail','pattern':'.+@gmail.com'}}) }}
+{{ form_row(form.password, {'label':'Mot de Passe','attr':{'placeholder':'Entrer le mot de passe'}}) }}
+{{ form_row(form.confirm_password, {'label':'Confirmation du mot de passe','attr':{'placeholder':'Répétez votre mot de passe'}}) }}
+{{ form_row(form.roles, {'label':' ', 'attr': {'required':'required'}}) }}
+<button type="submit" class="btn btn-primary ">Enregistrer</button> 
+{{ form_end(form) }}
+<a href="{{ path('user_index') }}" class="btn btn-secondary">Liste des utilisateurs</a>
+</div>
+{% endblock %}

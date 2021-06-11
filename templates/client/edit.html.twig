@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modif Client{% endblock %}
+
+{% block body %}
+    <h1>Modifier un Client</h1>
+
+    {{ include('client/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('client_index') }}" class="btn btn-secondary">liste des clients</a>
+
+    {{ include('client/_delete_form.html.twig') }}
+{% endblock %}

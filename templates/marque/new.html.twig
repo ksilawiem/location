@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Marque{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<div class="example-wrapper">
+    <h1>Créer un nouveau Marque</h1>
+
+    {{ include('marque/_form.html.twig') }}
+
+    <a href="{{ path('marque_index') }}" class="btn btn-secondary">Liste des marques</a>
+    </div>
+{% endblock %}

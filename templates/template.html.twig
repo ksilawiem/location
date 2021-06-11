@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="fr">
+
+  <head>
+    <title>{% block title %}Location Voitures{% endblock %}</title>
+      {% block stylesheets %}
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+  
+.scrollup {
+	width: 40px;
+	height: 40px;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	display: none;
+	color: white;
+	background-color: #3a3f51;
+	border: 1px solid #3a3f51;
+	font-size: 20px;
+	text-align: center;
+	line-height: 37px;
+}
+ 
+.scrollup:hover {
+	color: white;
+}
+    </style>
+{% endblock %}
+
+{% block stylesheet %} {% endblock%}
+  </head>
+
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <div class="site-wrap" id="home-section">
+
+      <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+
+
+
+      <header class="site-navbar site-navbar-target" role="banner">
+
+        <div class="container">
+          <div class="row align-items-center position-relative">
+
+            <div class="col-3 ">
+              <div class="site-logo">
+                <a href="/">Location de voitures</a>
+              </div>
+            </div>
+
+            <div class="col-9  text-right">
+              
+
+              <span class="d-inline-block d-lg-none"><a href="#" class="text-white site-menu-toggle js-menu-toggle py-5 text-white"><span class="icon-menu h3 text-white"></span></a></span>
+
+              
+
+              <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+                <ul class="site-menu main-menu js-clone-nav ml-auto ">
+                  <li class="active"><a href="/" class="nav-link">Acceuil</a></li>
+                  <li><a href="/propos" class="nav-link">À propos</a></li>
+                  <li><a href="/services" class="nav-link">Services</a></li>
+                  <li><a href="/voitures" class="nav-link">Voitures</a></li>
+                  <!--<li><a href="/contact" class="nav-link">Contact</a></li>-->
+                </ul>
+              </nav>
+            </div>
+
+            
+          </div>
+        </div>
+
+      </header>
+
+   {% block body %} {% endblock %}
+
+  
+
+      <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h2 class="footer-heading mb-4">À propos de nous</h2>
+                <p>Une agence de location de voitures, 
+                de voitures de location ou de location de voitures 
+                est une entreprise qui loue des automobiles pour de courtes périodes, 
+                allant généralement de quelques heures à quelques semaines.</p>
+          </div>
+
+          <div class="col-lg-4 ml-auto">
+            <div class="row">
+              <div class="col-lg-6">
+                <h2 class="footer-heading mb-4">Liens rapides</h2>
+                <ul class="list-unstyled">
+                  <li><a href="/propos">À propos Nous</a></li>
+                  <li><a href="/voitures">Voitures</a></li>
+                  <li><a href="/services">Services</a></li>
+                 <!-- <li><a href="/contact">Contact Nous</a></li>-->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <div class="border-top pt-5">
+              <p>
+
+            </p>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+     <a href="#" title="Haut de page" class="scrollup"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+    
+    <div class="fb-customerchat"
+ page_id="478343832183245"
+ ref="<OPTIONAL_WEBHOOK_PARAM>"
+ minimized="<true|false>">
+</div>
+    </footer>
+
+    </div>
+
+
+ {% block javascripts %}
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+ScrollToTop=function() {
+  var s = $(window).scrollTop();
+  if (s > 250) {
+    $('.scrollup').fadeIn();
+  } else {
+    $('.scrollup').fadeOut();
+  }
+ 
+  $('.scrollup').click(function () {
+      $("html, body").animate({ scrollTop: 0 }, 500);
+      return false;
+  });
+}
+ 
+StopAnimation=function() {
+  $("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
+    $('html, body').stop();
+  });
+}
+ 
+ 
+$(window).scroll(function() {
+  ScrollToTop();
+  StopAnimation();
+});
+
+
+</script>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '798319744016967',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.11' }); }; 
+(function(d, s, id){ var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://connect.facebook.net/fr_FR/sdk.js"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk')); 
+</script>
+
+
+<script> 
+/*$(document).ready(function(){
+  $("#list").hide();
+});
+$(document).ready(function(){
+$('input[name="nbv"]').change(function(){
+  if($('input[name="nbv"]').val()=='5'){
+    $("#list").show();
+  }else{ $("#list").hide();}
+});
+
+});*/
+
+function getParamByPrice(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+$(document).ready(function(){
+  var p = getParamByPrice('prixj');
+$('input[name="prixpj"]').val(p);
+});
+function valider()
+	{
+    if (document.formsearch.nom.value == "" && document.formsearch.prix.value == ""){
+	alert ("Veuillez entrer votre nom et/ou prix de voiture!");
+    }
+  }
+  
+  function getParamByVoiture(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+  function getParamByRemise(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+function nomFonctionJS(){
+ 
+    var inputValeur = $("input[name=prixpj]").val();
+    var inputValeur0 = $("input[name=nbv]").val();
+    var inputValeur1 = $("#adresse").val();
+    var inputValeur2 = $("#email").val();
+    var inputValeur3 = $("#tel").val();
+    var inputValeur4 = getParamByVoiture('nom');
+    var inputValeur5 = $("#nomclt").val();
+    var inputValeur6 = $("#prenomclt").val();
+    var inputValeur7 = getParamByRemise('remise');
+    var somme = Number((inputValeur * inputValeur0)-((inputValeur * inputValeur0) * inputValeur7)/100 );
+ 
+    if(inputValeur != "" && inputValeur0 != "" && inputValeur1 != "" && inputValeur2 != "" && inputValeur3 != "" && inputValeur4 != "" && inputValeur5 != "" && inputValeur6 != ""){  
+         
+      window.location = "/devis?prixj="+inputValeur+"&nbv="+inputValeur0+"&adresse="+inputValeur1+"&email="+inputValeur2+"&tel="+inputValeur3+"&voit="+inputValeur4+"&nomclt="+inputValeur5+"&prenomclt="+inputValeur6+"&som="+somme;
+    }
+}
+
+
+
+
+
+
+
+ </script>
+ {% endblock %}
+
+  </body>
+
+</html>

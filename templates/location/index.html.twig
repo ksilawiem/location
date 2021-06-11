@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Location index{% endblock %}
+
+{% block body %}
+<style>
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+</style>
+<div class="example-wrapper">
+    <h1>Liste des Locations</h1><br>
+    <div align="left">
+       <a href="{{ path('location_new') }}" class="btn btn-primary">Créer un nouveau</a>
+    </div>
+       <div align="right">
+     <form action="{{ path('location_index')}}" method="get">
+     <input name="filter" type="text" placeholder="Date Début" required/>
+     <button type="submit" class="btn btn-info">Rechercher</button>
+     </form>
+    </div>
+    <br>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Client</th>
+                <th>Voiture</th>
+                <th>Date Début</th>
+                <th>Date Fin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for location in locations %}
+            <tr>
+                <td>{{ location.clients.prenom ~ location.clients.nom}}</td>
+                <td>{{ location.voitures.nom }}</td>
+                <td>{{ location.datedebut ? location.datedebut|date('d-m-Y') : '' }}</td>
+                <td>{{ location.datefin ? location.datefin|date('d-m-Y') : '' }}</td>
+                <td>
+                    <a href="{{ path('location_show', {'id': location.id}) }}" class="btn btn-info">afficher</a>
+                    {% if location.valider == "1" %}
+            <a href="{{ path('location_edit', {'id': location.id}) }}" class="btn btn-success disabled">modifier</a>
+            {% else %}
+            <a href="{{ path('location_edit', {'id': location.id}) }}" class="btn btn-success" >modifier</a>
+            {% endif %}
+    <form method="post" action="{{ path('location_valid', {'id':location.id}) }}" onsubmit="return confirm('Êtes-vous sûr valider cet location?');">
+    <input type="hidden" name="_method" value="POST">
+    <input type="hidden" name="_token" value="{{ csrf_token('valider' ~ location.id) }}">
+    {% if location.valider == "1" %}
+    <button class="btn btn-warning" disabled>Valider</button>
+     {% else %}
+     <button class="btn btn-warning">Valider</button>
+     {% endif %}
+    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+         <div class="col-12">
+              {{ knp_pagination_render(locations) }}
+          </div>
+    </div>
+{% endblock %}

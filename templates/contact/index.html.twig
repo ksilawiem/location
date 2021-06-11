@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contacts{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Liste des Contacts Voyage</h1>
+    <div align="right">
+     <form action="{{ path('contacts')}}" method="get">
+     <input name="filter" type="text" placeholder="votre lieu"  required/>
+     <button type="submit" class="btn btn-info">Rechercher</button>
+     </form>
+    </div>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Votre Lieu</th>
+                <th>Ou aller</th>
+                <th>N° Télèphone</th>
+                <th>Date du voyage</th>
+                <th>Date de retour</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.votrelieu }}</td>
+                <td>{{ contact.lieualler }}</td>
+                <td>{{ contact.tel }}</td>
+                <td>{{ contact.datevoyage ? contact.datevoyage |date('d-m-Y') : '' }}</td>
+                <td>{{ contact.dateretour ? contact.dateretour |date('d-m-Y') : '' }}</td>
+                <td>
+    <form method="post" action="{{ path('contact_delete', {'id':contact.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet contact?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('del' ~ contact.id) }}">
+    <button class="btn btn-danger">Supprimer</button>
+    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+          <div class="col-12">
+              {{ knp_pagination_render(contacts) }}
+          </div>
+    </div>
+
+{% endblock %}

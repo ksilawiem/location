@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marque index{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1>Liste des Marques</h1><br>
+    <div align="left">
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('marque_new') }}" class="btn btn-primary">Créer un nouveau</a>
+    {% endif %}
+    </div>
+<div align="right">
+     <form action="{{ path('marque_index')}}" method="get">
+     <input name="filter" type="text" placeholder="marque" required/>
+     <button type="submit" class="btn btn-info">Rechercher</button>
+     </form>
+    </div>
+    <br>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for marque in marques %}
+            <tr>
+                <td>{{ marque.nom }}</td>
+                <td> <img src="{{ asset('images/marques/' ~ marque.image) }}" width="50px" heigth="50px" /></td></td>
+                <td>
+                    <a href="{{ path('marque_show', {'id': marque.id}) }}" class="btn btn-info">afficher</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('marque_edit', {'id': marque.id}) }}" class="btn btn-success">modifier</a>
+                     {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        <div class="col-12">
+              {{ knp_pagination_render(marques) }}
+          </div>
+    </div>
+{% endblock %}

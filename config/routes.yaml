@@ -1,0 +1,11 @@
+index:
+    path: /
+    controller: App\Controller\SiteController::index
+
+login:
+    path:       /login
+    controller: App\Controller\SecurityController::login
+
+app_logout:
+    path: /logout
+    methods: GET

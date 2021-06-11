@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Client index{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1>Liste des Clients</h1><br>
+    <div align="left">
+    <a class="btn btn-primary" href="{{ path('client_new') }}">Créer un nouveau</a>
+    </div>
+    <div align="right">
+     <form action="{{ path('client_index')}}" method="get">
+     <input name="filter" type="text" placeholder="client" required/>
+     <button type="submit" class="btn btn-info">Rechercher</button>
+     </form>
+    </div>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Adresse</th>
+                <th>Tel</th>
+                <th>Voiture</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td>{{ client.nom }}</td>
+                <td>{{ client.prenom }}</td>
+                <td>{{ client.email }}</td>
+                <td>{{ client.adresse }}</td>
+                <td>{{ client.tel }}</td>
+                <td>{{ client.voiture.nom }}</td>
+                <td>
+    <form method="post" action="{{ path('client_delete', {'id':client.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet client?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ client.id) }}">
+    <button class="btn btn-danger">Supprimer</button>
+    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+     <div class="col-12">
+              {{ knp_pagination_render(clients) }}
+          </div>
+    </div>
+{% endblock %}

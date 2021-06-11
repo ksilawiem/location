@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Location{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1>Créer un nouveau Location</h1>
+
+    {{ include('location/_form.html.twig') }}
+
+    <a href="{{ path('location_index') }}" class="btn btn-secondary">Liste des locations</a>
+    </div>
+{% endblock %}

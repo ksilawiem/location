@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Liste des Utilisateurs</h1><br>
+ {% if is_granted('ROLE_ADMIN') %}
+     <div align="left">
+    <a class="btn btn-primary" href="{{ path('app_inscription') }}">Créer un nouveau</a>
+    </div>
+    {% endif %}
+    <div align="right">
+     <form action="{{ path('user_index')}}" method="get">
+     <input name="filter" type="text" placeholder="utilisateur" required/>
+     <button type="submit" class="btn btn-info">Rechercher</button>
+     </form>
+    </div>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Role</th>
+{% if is_granted('ROLE_ADMIN') %}
+                <th>actions</th>
+{% endif %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.email }}</td>
+                <td>{% if user.roles[0] == "ROLE_ADMIN" %} <span>Administrarteur</span> {% else %} <span>Utilisateur</span>{% endif %}</td>
+                {% if is_granted('ROLE_ADMIN') %}
+                <td>
+                   <form method="post" action="{{ path('user_delete', {'id':user.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet utulisateur?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+    <button class="btn btn-danger">Supprimer</button>
+</form>
+                </td>
+                {% endif %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+     <div class="col-12">
+              {{ knp_pagination_render(users) }}
+          </div>
+    </div>
+{% endblock %}
